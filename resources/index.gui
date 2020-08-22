@@ -1,0 +1,58 @@
+<svg viewport-fill="black">
+  <defs>
+    <symbol id="redrect">
+      <g>
+        <rect x="5%" y="5%" width="90%" height="90%" fill-opacity="1" fill="red" pointer-events="visible">
+          <animate attributeName="opacity" begin="load" final="freeze" from="1" to="0" dur="0.0"/>
+          <animate attributeName="opacity" begin="enable" final="freeze" from="1" to="0" dur="0.2" easing="ease-in" repeatCount="2" />
+        </rect>
+      </g>
+    </symbol>
+  </defs>
+
+  <!-- Current Waypoint -->
+  <use id="mqcurrent" href="#marquee-text" class="currentColor" mode="0" font-family="Seville-Regular" font-size="40" value="120" x="60%" y="50%-25" width="40%-6" height="50">
+    <set href="group/text" attributeName="text-buffer" to="[Initializing...]" />
+    <set href="group/separator" attributeName="width" to="150" />
+  </use>
+
+  <!-- "Compass" in scare quotes -->
+  <section id="compass-section" x="25%-54" y="30%-48" width="120" height="120">
+    <circle id="circle-compass" fill="fb-extra-dark-gray" pointer-events="visible" cx="50%" cy="50%" r="60" />
+
+    <!-- North -->
+    <arc id="arc-north" x="0" y="0" width="100%" height="100%" fill="fb-red" arc-width="5" start-angle="-20" sweep-angle="40" />
+    <section x="50%" y="50%">
+      <g id="N">
+        <text x="0%" y="-15%" fill="white" font-size="24" font-weight="bold" text-anchor="middle">N</text>
+      </g>
+    </section>
+    <!-- Destination -->
+    <arc id="arc-dest" x="-10" y="-10" width="140" height="140" class="nextColor" arc-width="31" start-angle="-5" sweep-angle="10" />
+
+    <!-- Bearing -->
+    <arc id="arc-bearing" x="0" y="0" width="120" height="120" class="currentColor" arc-width="10" start-angle="-15" sweep-angle="30" />
+  </section>
+
+  <!-- Distance -->
+  <use id="distance" href="#mixed-text-left-bottom" height="100%" class="nextColor">
+    <set href="#header/text" attributeName="text-buffer" to="        -"/>
+    <set href="#copy/text" attributeName="text-buffer" to="meters"/>
+  </use>
+
+  <!-- Scroll through Waypoints -->
+  <svg x="65%" y="12" width="35%-6" height="25%">
+    <use id="warnbox-prev" href="#redrect" />
+    <use id="btnprev" href="#square-button" fill="fb-light-gray" height="100%">
+      <set href="#text" attributeName="text-buffer" to="Prev" />
+    </use>
+  </svg>
+
+  <svg x="65%" y="100%-72" width="35%-6" height="25%">
+    <use id="warnbox-next" href="#redrect" />
+    <use id="btnnext" href="#square-button" class="nextColor" height="100%">
+      <set href="#text" attributeName="text-buffer" to="Next" />
+    </use>
+  </svg>
+
+</svg>
